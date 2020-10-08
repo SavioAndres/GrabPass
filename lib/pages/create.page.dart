@@ -88,7 +88,7 @@ class CreatePage extends StatelessWidget {
               child: SizedBox.expand(
                 child: FlatButton(
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
                         "Criar Conta",
