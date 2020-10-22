@@ -4,6 +4,7 @@ import 'package:GrabPass/model/PasswordModel.dart';
 import 'package:GrabPass/pages/AddPasswordPage.dart';
 import 'package:GrabPass/pages/SettingsPage.dart';
 import 'package:GrabPass/pages/ViewPasswordPage.dart';
+import 'package:GrabPass/pages/UpdatePasswordPage.dart';
 import 'package:flutter/material.dart';
 
 class PasswordHomepage extends StatefulWidget {
@@ -185,7 +186,10 @@ class _PasswordHomepageState extends State<PasswordHomepage> {
                           
                           onDismissed: (direction) {
                             if(direction == DismissDirection.startToEnd) {
-                              
+                              Navigator.push(
+                                context, 
+                                MaterialPageRoute(builder: (context) => UpadatePassword()),
+                              );
                             } else {
                               var item = password;
                               //To delete
@@ -204,6 +208,7 @@ class _PasswordHomepageState extends State<PasswordHomepage> {
                                           snapshot.data.insert(index, item);
                                         });
                                       })));
+                              
                             }
                           },
                           child: InkWell(
