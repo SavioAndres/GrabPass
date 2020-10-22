@@ -278,7 +278,8 @@ class _AddPasswordState extends State<AddPassword> {
                                 text: passwordController.text));
                             scaffoldKey.currentState.showSnackBar(
                               SnackBar(
-                                content: Text("Copiado para a área de transferência"),
+                                content: Text(
+                                    "Copiado para a área de transferência"),
                                 duration: Duration(seconds: 2),
                               ),
                             );
@@ -325,7 +326,7 @@ class _AddPasswordState extends State<AddPassword> {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(
-                              left: 8.0, right: 8.0, top: 8.0),
+                              left: 8.0, right: 20.0, top: 8.0),
                           child: Material(
                             shape: CircleBorder(),
                             elevation: 4.0,
@@ -383,7 +384,7 @@ class _AddPasswordState extends State<AddPassword> {
                           },
                           child: Padding(
                             padding: const EdgeInsets.only(
-                                left: 8.0, right: 8.0, top: 8.0),
+                                left: 8.0, right: 80, top: 2),
                             child: Material(
                                 shape: CircleBorder(),
                                 elevation: 4.0,
@@ -434,7 +435,7 @@ class _AddPasswordState extends State<AddPassword> {
       context: context,
       builder: (_) {
         return AlertDialog(
-          contentPadding: const EdgeInsets.all(6.0),
+          contentPadding: const EdgeInsets.all(7.0),
           title: Text("Seletor de cores"),
           actions: [
             FlatButton(
