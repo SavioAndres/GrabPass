@@ -87,7 +87,7 @@ class _SetMasterPasswordState extends State<SetMasterPassword> {
                     labelText: "Senha mestre",
                     labelStyle: TextStyle(fontFamily: "Subtitle"),
                     border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16))),
+                        borderRadius: BorderRadius.circular(6))),
                 controller: masterPassController,
               ),
             ),

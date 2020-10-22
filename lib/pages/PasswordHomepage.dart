@@ -184,24 +184,27 @@ class _PasswordHomepageState extends State<PasswordHomepage> {
                           key: ObjectKey(password.id),
                           
                           onDismissed: (direction) {
-                            
-                            var item = password;
-                            //To delete
-                            DBProvider.db.deletePassword(item.id);
-                            setState(() {
-                              snapshot.data.removeAt(index);
-                            });
-                            //To show a snackbar with the UNDO button
-                            Scaffold.of(context).showSnackBar(SnackBar(
-                                content: Text("Senha excluída"),
-                                action: SnackBarAction(
-                                    label: "DESFAZER",
-                                    onPressed: () {
-                                      DBProvider.db.newPassword(item);
-                                      setState(() {
-                                        snapshot.data.insert(index, item);
-                                      });
-                                    })));
+                            if(direction == DismissDirection.startToEnd) {
+                              
+                            } else {
+                              var item = password;
+                              //To delete
+                              DBProvider.db.deletePassword(item.id);
+                              setState(() {
+                                snapshot.data.removeAt(index);
+                              });
+                              //To show a snackbar with the UNDO button
+                              Scaffold.of(context).showSnackBar(SnackBar(
+                                  content: Text("Senha excluída"),
+                                  action: SnackBarAction(
+                                      label: "DESFAZER",
+                                      onPressed: () {
+                                        DBProvider.db.newPassword(item);
+                                        setState(() {
+                                          snapshot.data.insert(index, item);
+                                        });
+                                      })));
+                            }
                           },
                           child: InkWell(
                             onTap: () {
