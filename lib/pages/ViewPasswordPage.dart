@@ -128,7 +128,7 @@ class _ViewPasswordState extends State<ViewPassword> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    "Nome de usuário/e-mail",
+                    "Nome de usuário ou e-mail",
                     style: TextStyle(fontFamily: 'Title', fontSize: 20),
                   ),
                 ),
@@ -209,7 +209,9 @@ class _ViewPasswordState extends State<ViewPassword> {
                 style: TextStyle(fontFamily: 'Subtitle'),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.only(
+                  top: 30,
+                ),
                 child: TextField(
                   obscureText: true,
                   maxLength: 32,
@@ -217,7 +219,7 @@ class _ViewPasswordState extends State<ViewPassword> {
                       hintText: "Senha mestre",
                       hintStyle: TextStyle(fontFamily: "Subtitle"),
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(16))),
+                          borderRadius: BorderRadius.circular(6))),
                   controller: masterPassController,
                 ),
               ),

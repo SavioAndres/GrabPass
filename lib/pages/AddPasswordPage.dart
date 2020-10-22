@@ -131,14 +131,14 @@ class _AddPasswordState extends State<AddPassword> {
   }
 
   double passwordStrength = 0.0;
-  Color passwordStrengthBarColor = Colors.red;
+  Color passwordStrengthBarColor = Colors.teal;
   bool obscureText = true;
   String show_hide = 'Mostrar senha';
   var scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
-    pickedColor = Colors.red;
+    pickedColor = Colors.teal;
     getMasterPass();
     pickedIcon = 0;
     // authenticate();
@@ -181,7 +181,7 @@ class _AddPasswordState extends State<AddPassword> {
               child: Container(
                 margin: EdgeInsets.only(top: size.height * 0.05),
                 child: Text(
-                  "Adicionar senha",
+                  "Adicionar Conta",
                   style: TextStyle(
                       fontFamily: "Title", fontSize: 32, color: primaryColor),
                 ),
@@ -203,7 +203,7 @@ class _AddPasswordState extends State<AddPassword> {
                           labelText: "Título",
                           labelStyle: TextStyle(fontFamily: "Subtitle"),
                           border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(16))),
+                              borderRadius: BorderRadius.circular(6))),
                       controller: appNameController,
                     ),
                   ),
@@ -219,7 +219,7 @@ class _AddPasswordState extends State<AddPassword> {
                           labelText: "Nome de usuário ou e-mail",
                           labelStyle: TextStyle(fontFamily: "Subtitle"),
                           border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(16))),
+                              borderRadius: BorderRadius.circular(6))),
                       controller: userNameController,
                     ),
                   ),
@@ -240,7 +240,7 @@ class _AddPasswordState extends State<AddPassword> {
                         labelText: "Senha",
                         labelStyle: TextStyle(fontFamily: "Subtitle"),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(16),
+                          borderRadius: BorderRadius.circular(6),
                         ),
                       ),
                       controller: passwordController,
@@ -307,6 +307,9 @@ class _AddPasswordState extends State<AddPassword> {
                       ),
                     ),
                   ),
+
+/*
+
                   Padding(
                     padding:
                         const EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0),
@@ -397,6 +400,9 @@ class _AddPasswordState extends State<AddPassword> {
                       ],
                     ),
                   ),
+
+*/
+
                 ],
               ),
             ),

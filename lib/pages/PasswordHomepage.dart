@@ -129,8 +129,62 @@ class _PasswordHomepageState extends State<PasswordHomepage> {
                         i = iconNames.indexOf(password.icon);
                         Color color = hexToColor(password.color);
                         return Dismissible(
+                          background: Container(
+                            color: Colors.teal[400],
+                            child: Align(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  Icon(
+                                    Icons.edit,
+                                    color: Colors.white,
+                                  ),
+                                  Text(
+                                    " Editar",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                ],
+                              ),
+                              alignment: Alignment.centerLeft,
+                            ),
+                          ),
+                          secondaryBackground: Container(
+                            color: Colors.red[300],
+                            child: Align(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: <Widget>[
+                                  Icon(
+                                    Icons.delete,
+                                    color: Colors.white,
+                                  ),
+                                  Text(
+                                    " Exluir",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                    textAlign: TextAlign.right,
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                ],
+                              ),
+                              alignment: Alignment.centerRight,
+                            ),
+                          ),
                           key: ObjectKey(password.id),
+                          
                           onDismissed: (direction) {
+                            
                             var item = password;
                             //To delete
                             DBProvider.db.deletePassword(item.id);
