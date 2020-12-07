@@ -1,10 +1,9 @@
-import 'package:GrabPass/bloc/PasswordBloc.dart';
-import 'package:GrabPass/database/Database.dart';
-import 'package:GrabPass/model/PasswordModel.dart';
-import 'package:GrabPass/pages/AddPasswordPage.dart';
-import 'package:GrabPass/pages/SettingsPage.dart';
-import 'package:GrabPass/pages/ViewPasswordPage.dart';
-import 'package:GrabPass/pages/UpdatePasswordPage.dart';
+import 'package:GrabPass/bloc/password_bloc.dart';
+import 'package:GrabPass/database/database.dart';
+import 'package:GrabPass/model/password_model.dart';
+import 'package:GrabPass/pages/add_password.dart';
+import 'package:GrabPass/pages/view_password.dart';
+import 'package:GrabPass/pages/update_password.dart';
 import 'package:flutter/material.dart';
 
 class PasswordHomepage extends StatefulWidget {
@@ -183,12 +182,12 @@ class _PasswordHomepageState extends State<PasswordHomepage> {
                             ),
                           ),
                           key: ObjectKey(password.id),
-                          
                           onDismissed: (direction) {
-                            if(direction == DismissDirection.startToEnd) {
+                            if (direction == DismissDirection.startToEnd) {
                               Navigator.push(
-                                context, 
-                                MaterialPageRoute(builder: (context) => UpadatePassword()),
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => UpadatePassword()),
                               );
                             } else {
                               var item = password;
@@ -208,7 +207,6 @@ class _PasswordHomepageState extends State<PasswordHomepage> {
                                           snapshot.data.insert(index, item);
                                         });
                                       })));
-                              
                             }
                           },
                           child: InkWell(

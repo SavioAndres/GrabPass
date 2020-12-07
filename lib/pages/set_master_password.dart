@@ -1,8 +1,6 @@
-import 'package:GrabPass/pages/PasswordHomepage.dart';
-import 'package:GrabPass/pages/dashboard.page.dart';
+import 'package:GrabPass/pages/password_homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:local_auth/local_auth.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class SetMasterPassword extends StatefulWidget {
@@ -13,16 +11,14 @@ class SetMasterPassword extends StatefulWidget {
 class _SetMasterPasswordState extends State<SetMasterPassword> {
   TextEditingController masterPassController = TextEditingController();
 
-  Future<Null> getMasterPass() async {    
-
-    final storage = new FlutterSecureStorage();   
+  Future<Null> getMasterPass() async {
+    final storage = new FlutterSecureStorage();
     String masterPass = await storage.read(key: 'master') ?? '';
     masterPassController.text = masterPass;
-
   }
 
-  saveMasterPass(String masterPass) async{
-    final storage = new FlutterSecureStorage();   
+  saveMasterPass(String masterPass) async {
+    final storage = new FlutterSecureStorage();
 
     await storage.write(key: 'master', value: masterPass);
   }
@@ -63,10 +59,9 @@ class _SetMasterPasswordState extends State<SetMasterPassword> {
                 margin: EdgeInsets.only(top: size.height * 0.05),
                 child: Text("Senha mestre",
                     style: TextStyle(
-                      fontFamily: "Title",
-                      fontSize: 32,
-                      color: primaryColor
-                    ))),
+                        fontFamily: "Title",
+                        fontSize: 32,
+                        color: primaryColor))),
           ),
           Padding(
               padding: const EdgeInsets.all(16.0),

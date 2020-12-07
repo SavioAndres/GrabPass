@@ -18,7 +18,13 @@ class Password {
   String icon;
   String color;
 
-  Password({this.id, this.icon,this.color, this.userName, this.appName, this.password});
+  Password(
+      {this.id,
+      this.icon,
+      this.color,
+      this.userName,
+      this.appName,
+      this.password});
 
   Password.fromJson(Map<String, dynamic> json) {
     id = json['id'];

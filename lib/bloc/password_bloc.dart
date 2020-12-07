@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:GrabPass/database/Database.dart';
-import 'package:GrabPass/model/PasswordModel.dart';
+import 'package:GrabPass/database/database.dart';
+import 'package:GrabPass/model/password_model.dart';
 
 class PasswordBloc {
   PasswordBloc() {
@@ -22,10 +22,12 @@ class PasswordBloc {
     DBProvider.db.newPassword(password);
     getPasswords();
   }
+
   update(Password password) {
     DBProvider.db.updatePassword(password);
     getPasswords();
   }
+
   delete(int id) {
     DBProvider.db.deletePassword(id);
     getPasswords();

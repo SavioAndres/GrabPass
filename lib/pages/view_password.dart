@@ -1,11 +1,8 @@
-import 'package:GrabPass/model/PasswordModel.dart';
+import 'package:GrabPass/model/password_model.dart';
 import 'package:flutter/material.dart';
 import 'package:encrypt/encrypt.dart' as encrypt;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:local_auth/local_auth.dart';
-import 'package:sqflite/utils/utils.dart';
-
-import 'PasswordHomepage.dart';
 
 class ViewPassword extends StatefulWidget {
   final Password password;
@@ -160,7 +157,9 @@ class _ViewPasswordState extends State<ViewPassword> {
                         Padding(
                           padding: const EdgeInsets.fromLTRB(8.0, 0, 8, 8),
                           child: Text(
-                            decrypt ? decrypted : "**********", //password.password
+                            decrypt
+                                ? decrypted
+                                : "**********", //password.password
                             style: TextStyle(
                               fontFamily: 'Subtitle',
                               fontSize: 20,

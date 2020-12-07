@@ -1,6 +1,4 @@
-import 'package:GrabPass/pages/create.page.dart';
-import 'package:GrabPass/pages/dashboard.page.dart';
-import 'package:GrabPass/pages/greetings.page.dart';
+import 'package:GrabPass/pages/greetings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -17,7 +15,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   int launch = 0;
   bool loading = true;
-  
+
   @override
   void initState() {
     //checkPrimaryColr();
@@ -31,7 +29,7 @@ class _MyAppState extends State<MyApp> {
 
     final storage = new FlutterSecureStorage();
     String masterPass = await storage.read(key: 'master') ?? '';
-    
+
     //if (prefs.getInt('primaryColor') == null) {
     //  await prefs.setInt('primaryColor', 0);
     //}
@@ -39,7 +37,7 @@ class _MyAppState extends State<MyApp> {
     if (launch == 0 && masterPass == '') {
       await prefs.setInt('launch', launch + 1);
       //await prefs.setInt('primaryColor', 0);
-      
+
       // await prefs.setBool('enableDarkTheme', false);
     }
 
@@ -58,11 +56,13 @@ class _MyAppState extends State<MyApp> {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       //home: CreatePage(),
-      home: loading 
+      home: loading
           ? Center(
-            child: CircularProgressIndicator(),
-          )
-        : launch == 0 ? GreetingsPage() : GreetingsPage(),
+              child: CircularProgressIndicator(),
+            )
+          : launch == 0
+              ? GreetingsPage()
+              : GreetingsPage(),
     );
   }
 }

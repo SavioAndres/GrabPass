@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_material_color_picker/flutter_material_color_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'SetMasterPassword.dart';
+import 'set_master_password.dart';
 
 class SettingsPage extends StatefulWidget {
   @override

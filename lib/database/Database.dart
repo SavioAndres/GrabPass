@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:GrabPass/model/PasswordModel.dart';
+import 'package:GrabPass/model/password_model.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
@@ -38,7 +38,7 @@ class DBProvider {
 
   newPassword(Password password) async {
     final db = await database;
-    var res = await db.insert("Passwords",password.toJson());
+    var res = await db.insert("Passwords", password.toJson());
     return res;
   }
 

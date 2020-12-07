@@ -1,6 +1,6 @@
-import 'package:GrabPass/database/Database.dart';
-import 'package:GrabPass/model/PasswordModel.dart';
-import 'package:GrabPass/pages/PasswordHomepage.dart';
+import 'package:GrabPass/database/database.dart';
+import 'package:GrabPass/model/password_model.dart';
+import 'package:GrabPass/pages/password_homepage.dart';
 import 'package:GrabPass/random_string.dart';
 import 'package:flutter/material.dart';
 import 'package:encrypt/encrypt.dart' as encrypt;
@@ -402,7 +402,6 @@ class _AddPasswordState extends State<AddPassword> {
                   ),
 
 */
-
                 ],
               ),
             ),
