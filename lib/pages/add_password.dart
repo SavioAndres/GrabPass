@@ -1,6 +1,6 @@
 import 'package:GrabPass/database/database.dart';
 import 'package:GrabPass/model/password_model.dart';
-import 'package:GrabPass/pages/password_homepage.dart';
+import 'package:GrabPass/pages/homepage.dart';
 import 'package:GrabPass/random_string.dart';
 import 'package:flutter/material.dart';
 import 'package:encrypt/encrypt.dart' as encrypt;
@@ -120,7 +120,7 @@ class _AddPasswordState extends State<AddPassword> {
         Navigator.pushAndRemoveUntil(
             context,
             MaterialPageRoute(
-                builder: (BuildContext context) => PasswordHomepage()),
+                builder: (BuildContext context) => Homepage()),
             (Route<dynamic> route) => false);
       }
     } on PlatformException catch (e) {
@@ -424,7 +424,7 @@ class _AddPasswordState extends State<AddPassword> {
             Navigator.pushAndRemoveUntil(
                 context,
                 MaterialPageRoute(
-                    builder: (BuildContext context) => PasswordHomepage()),
+                    builder: (BuildContext context) => Homepage()),
                 (Route<dynamic> route) => false);
           } else {
             // print(Theme.of(context).accentColor);

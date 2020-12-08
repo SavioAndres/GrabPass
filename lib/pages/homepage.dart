@@ -2,20 +2,22 @@ import 'package:GrabPass/bloc/password_bloc.dart';
 import 'package:GrabPass/database/database.dart';
 import 'package:GrabPass/model/password_model.dart';
 import 'package:GrabPass/pages/add_password.dart';
+import 'package:GrabPass/pages/settings.dart';
 import 'package:GrabPass/pages/view_password.dart';
 import 'package:GrabPass/pages/update_password.dart';
+import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:flutter/material.dart';
 
-class PasswordHomepage extends StatefulWidget {
+class Homepage extends StatefulWidget {
   @override
-  _PasswordHomepageState createState() => _PasswordHomepageState();
+  _HomepageState createState() => _HomepageState();
 
-  Brightness brigntness = Brightness.light;
+  //Brightness brigntness = Brightness.light;
 
-  PasswordHomepage({this.brigntness});
+  //Homepage({this.brigntness});
 }
 
-class _PasswordHomepageState extends State<PasswordHomepage> {
+class _HomepageState extends State<Homepage> {
   int pickedIcon;
 
   List<Icon> icons = [
@@ -59,14 +61,12 @@ class _PasswordHomepageState extends State<PasswordHomepage> {
 
     // print(iconNames.indexOf('Icon 10'));
 
-    /*
-    void changeBrightness() {
+    /*void changeBrightness() {
       DynamicTheme.of(context).setBrightness(
           Theme.of(context).brightness == Brightness.dark
               ? Brightness.light
               : Brightness.dark);
-    }
-    */
+    }*/
 
     return Scaffold(
       body: Column(
@@ -88,7 +88,7 @@ class _PasswordHomepageState extends State<PasswordHomepage> {
                     ),
                     Row(
                       children: <Widget>[
-                        /* IconButton(
+                        /*IconButton(
                           icon: Icon(
                             Icons.wb_sunny,
                             color: primaryColor,
@@ -129,6 +129,8 @@ class _PasswordHomepageState extends State<PasswordHomepage> {
                         i = iconNames.indexOf(password.icon);
                         Color color = hexToColor(password.color);
                         return Dismissible(
+                          //Key(password.id.toString()), //Key(Uuid().v4().toString()), // ObjectKey(password.id), //UniqueKey(),
+                          key: ObjectKey(password.id), 
                           background: Container(
                             color: Colors.teal[400],
                             child: Align(
@@ -181,13 +183,13 @@ class _PasswordHomepageState extends State<PasswordHomepage> {
                               alignment: Alignment.centerRight,
                             ),
                           ),
-                          key: ObjectKey(password.id),
                           onDismissed: (direction) {
                             if (direction == DismissDirection.startToEnd) {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => UpadatePassword()),
+                                    builder: (context) =>
+                                        UpadatePassword(pass: password)),
                               );
                             } else {
                               var item = password;
@@ -282,4 +284,5 @@ class _PasswordHomepageState extends State<PasswordHomepage> {
   Color hexToColor(String code) {
     return new Color(int.parse(code.substring(1, 9), radix: 16) + 0xFF000000);
   }
+
 }

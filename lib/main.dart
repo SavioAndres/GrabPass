@@ -1,4 +1,5 @@
 import 'package:GrabPass/pages/greetings.dart';
+import 'package:GrabPass/pages/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -62,7 +63,7 @@ class _MyAppState extends State<MyApp> {
             )
           : launch == 0
               ? GreetingsPage()
-              : GreetingsPage(),
+              : Homepage(),
     );
   }
 }

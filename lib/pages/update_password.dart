@@ -1,6 +1,6 @@
 import 'package:GrabPass/database/database.dart';
 import 'package:GrabPass/model/password_model.dart';
-import 'package:GrabPass/pages/password_homepage.dart';
+import 'package:GrabPass/pages/homepage.dart';
 import 'package:GrabPass/random_string.dart';
 import 'package:flutter/material.dart';
 import 'package:encrypt/encrypt.dart' as encrypt;
@@ -12,7 +12,9 @@ import 'package:flutter/services.dart';
 import 'package:password_strength/password_strength.dart';
 
 class UpadatePassword extends StatefulWidget {
-  UpadatePassword({Key key}) : super(key: key);
+  UpadatePassword({Key key, @required this.pass}) : super(key: key);
+  final Password pass;
+  
 
   _UpadatePasswordState createState() => _UpadatePasswordState();
 }
@@ -104,6 +106,12 @@ class _UpadatePasswordState extends State<UpadatePassword> {
     final storage = new FlutterSecureStorage();
     String masterPass = await storage.read(key: 'master') ?? '';
     masterPassString = masterPass;
+    
+  }
+
+  Future<Null> getPassUpdate() async {
+    appNameController.text = widget.pass.appName;
+    userNameController.text = widget.pass.userName;
   }
 
   authenticate() async {
@@ -120,7 +128,7 @@ class _UpadatePasswordState extends State<UpadatePassword> {
         Navigator.pushAndRemoveUntil(
             context,
             MaterialPageRoute(
-                builder: (BuildContext context) => PasswordHomepage()),
+                builder: (BuildContext context) => Homepage()),
             (Route<dynamic> route) => false);
       }
     } on PlatformException catch (e) {
@@ -140,6 +148,7 @@ class _UpadatePasswordState extends State<UpadatePassword> {
   void initState() {
     pickedColor = Colors.teal;
     getMasterPass();
+    getPassUpdate();
     pickedIcon = 0;
     // authenticate();
     super.initState();
@@ -415,6 +424,7 @@ class _UpadatePasswordState extends State<UpadatePassword> {
           if (_formKey.currentState.validate()) {
             encryptPass(passwordController.text);
             Password password = new Password(
+                id: widget.pass.id,
                 appName: appNameController.text,
                 password: encryptedString,
                 color: "#" + pickedColor.value.toRadixString(16),
@@ -424,7 +434,7 @@ class _UpadatePasswordState extends State<UpadatePassword> {
             Navigator.pushAndRemoveUntil(
                 context,
                 MaterialPageRoute(
-                    builder: (BuildContext context) => PasswordHomepage()),
+                    builder: (BuildContext context) => Homepage()),
                 (Route<dynamic> route) => false);
           } else {
             // print(Theme.of(context).accentColor);

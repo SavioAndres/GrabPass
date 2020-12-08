@@ -10,10 +10,10 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  SharedPreferences prefs;
-  Color selectedColor = Colors.red;
+  //SharedPreferences prefs;
+  Color selectedColor = Colors.teal;
 
-  openSharedPreferences() async {
+  /*openSharedPreferences() async {
     prefs = await SharedPreferences.getInstance();
     setState(() {
       if (Color(prefs.getInt('primaryColor')) == null) {
@@ -22,11 +22,11 @@ class _SettingsPageState extends State<SettingsPage> {
         selectedColor = Color(prefs.getInt('primaryColor'));
       }
     });
-  }
+  }*/
 
   @override
   void initState() {
-    openSharedPreferences();
+    //openSharedPreferences();
     super.initState();
   }
 
@@ -95,7 +95,7 @@ class _SettingsPageState extends State<SettingsPage> {
               MaterialColorPicker(
                 onColorChange: (Color color) {
                   pickedColor = color;
-                  changeColor(color);
+                  //changeColor(color);
                   setState(() {
                     selectedColor = color;
                   });
@@ -110,6 +110,7 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
+/*
   void changeColor(Color color) {
     // SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setInt('primaryColor', color.value);
@@ -120,4 +121,5 @@ class _SettingsPageState extends State<SettingsPage> {
     ));
     */
   }
+  */
 }

@@ -1,4 +1,4 @@
-import 'package:GrabPass/pages/password_homepage.dart';
+import 'package:GrabPass/pages/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -108,7 +108,7 @@ class _SetMasterPasswordState extends State<SetMasterPassword> {
                           context,
                           MaterialPageRoute(
                               builder: (BuildContext context) =>
-                                  PasswordHomepage()));
+                                  Homepage()));
                     } else {
                       showDialog(
                           context: context,
