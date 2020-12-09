@@ -159,80 +159,56 @@ class _ViewPasswordState extends State<ViewPassword> {
                 ),
               )),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.fromLTRB(12, 18, 12, 8),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.fromLTRB(8, 8, 8, 10),
                   child: Text(
                     "Nome de usuário ou e-mail",
                     style: TextStyle(fontFamily: 'Title', fontSize: 20),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(8.0, 0, 8, 8),
+                  padding: const EdgeInsets.fromLTRB(8, 0, 8, 22),
                   child: Text(
                     password.userName,
                     style: TextStyle(
-                      fontFamily: 'Subtitle',
-                      fontSize: 20,
-                      // color: Colors.black54
-                    ),
+                        fontFamily: 'Subtitle',
+                        fontSize: 18,
+                        color: Colors.black54),
                   ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            "Senha",
-                            style: TextStyle(fontFamily: 'Title', fontSize: 20),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(8.0, 0, 8, 8),
-                          child: Text(
-                            decrypt
-                                ? decrypted
-                                : "**********", //password.password
-                            style: TextStyle(
-                              fontFamily: 'Subtitle',
-                              fontSize: 20,
-                              // color: Colors.black54
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.all(8),
+                            child: Text(
+                              "Senha",
+                              style:
+                                  TextStyle(fontFamily: 'Title', fontSize: 20),
                             ),
                           ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget> [ 
-                            FlatButton(
-                            disabledColor: Colors.green,
-                            onPressed: () {
-                              if (decrypt) {
-                                Clipboard.setData(
-                                    new ClipboardData(text: decrypted));
-                                scaffoldKey.currentState.showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                        "Copiado para a área de transferência"),
-                                    duration: Duration(seconds: 2),
-                                  ),
-                                );
-                              }
-                            },
-                            child: Text(decrypt ? "Copiar senha" : ""),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(8, 2, 8, 8),
+                            child: Text(
+                              decrypt
+                                  ? decrypted
+                                  : "**********", //password.password
+                              style: TextStyle(
+                                  fontFamily: 'Subtitle',
+                                  fontSize: 18,
+                                  color: Colors.black54),
+                            ),
                           ),
-                          ],
-                        )
-                      ],
-                    ),
+                        ]),
                     IconButton(
                       onPressed: () async {
                         if (!decrypt && !didAuthenticate) {
@@ -247,9 +223,35 @@ class _ViewPasswordState extends State<ViewPassword> {
                         }
                       },
                       icon: decrypt ? Icon(Icons.lock_open) : Icon(Icons.lock),
-                    )
+                    ),
                   ],
                 ),
+                SizedBox(
+                  height: 40,
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Center(
+                      child: FlatButton(
+                        //color: color,
+                        //textColor: Colors.white,
+                        onPressed: () {
+                          if (decrypt) {
+                            Clipboard.setData(new ClipboardData(text: decrypted));
+                            scaffoldKey.currentState.showSnackBar(
+                              SnackBar(
+                                content:
+                                    Text("Copiado para a área de transferência"),
+                                duration: Duration(seconds: 2),
+                              ),
+                            );
+                          }
+                        },
+                        child: Text(decrypt ? "Copiar senha" : ""),
+                    )),
+                  ],
+                )
               ],
             ),
           ),

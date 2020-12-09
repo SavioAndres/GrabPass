@@ -1,9 +1,8 @@
 import 'package:GrabPass/bloc/password_bloc.dart';
 import 'package:GrabPass/database/database.dart';
 import 'package:GrabPass/model/password_model.dart';
-import 'package:GrabPass/pages/add_password.dart';
+import 'package:GrabPass/pages/add_edit_password.dart';
 import 'package:GrabPass/pages/view_password.dart';
-import 'package:GrabPass/pages/update_password.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -222,32 +221,61 @@ class _HomepageState extends State<Homepage> {
                               alignment: Alignment.centerRight,
                             ),
                           ),
-                          onDismissed: (direction) {
+                          confirmDismiss: (direction) async {
                             if (direction == DismissDirection.startToEnd) {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        UpadatePassword(pass: password)),
+                                        AddEditPassword(pass: password)),
                               );
                             } else {
-                              var item = password;
-                              //To delete
-                              DBProvider.db.deletePassword(item.id);
-                              setState(() {
-                                snapshot.data.removeAt(index);
-                              });
-                              //To show a snackbar with the UNDO button
-                              Scaffold.of(context).showSnackBar(SnackBar(
-                                  content: Text("Senha excluída"),
-                                  action: SnackBarAction(
-                                      label: "DESFAZER",
-                                      onPressed: () {
-                                        DBProvider.db.newPassword(item);
-                                        setState(() {
-                                          snapshot.data.insert(index, item);
-                                        });
-                                      })));
+                              return await showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: const Text("Confirme"),
+                                    content: Text(
+                                        "Tem certeza de que deseja excluir a conta \"${password.appName}\"?"),
+                                    actions: <Widget>[
+                                      FlatButton(
+                                        onPressed: () =>
+                                            Navigator.of(context).pop(false),
+                                        child: const Text("CANCELAR"),
+                                      ),
+                                      FlatButton(
+                                          onPressed: () {
+                                            var item = password;
+                                            //To delete
+                                            DBProvider.db
+                                                .deletePassword(item.id);
+                                            setState(() {
+                                              snapshot.data.removeAt(index);
+                                              Navigator.of(context).pop(true);
+                                            });
+                                            //To show a snackbar with the UNDO button
+                                            Scaffold.of(context).showSnackBar(
+                                                SnackBar(
+                                                    content:
+                                                        Text("Senha excluída"),
+                                                    action: SnackBarAction(
+                                                        label: "DESFAZER",
+                                                        onPressed: () {
+                                                          DBProvider.db
+                                                              .newPassword(
+                                                                  item);
+                                                          setState(() {
+                                                            snapshot.data
+                                                                .insert(index,
+                                                                    item);
+                                                          });
+                                                        })));
+                                          },
+                                          child: const Text("EXCLUIR")),
+                                    ],
+                                  );
+                                },
+                              );
                             }
                           },
                           child: InkWell(
@@ -314,7 +342,7 @@ class _HomepageState extends State<Homepage> {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (BuildContext context) => AddPassword()));
+                  builder: (BuildContext context) => AddEditPassword()));
         },
       ),
     );
