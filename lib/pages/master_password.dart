@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-class SetMasterPassword extends StatefulWidget {
+class MasterPassword extends StatefulWidget {
   @override
-  _SetMasterPasswordState createState() => _SetMasterPasswordState();
+  _MasterPasswordState createState() => _MasterPasswordState();
 }
 
-class _SetMasterPasswordState extends State<SetMasterPassword> {
+class _MasterPasswordState extends State<MasterPassword> {
   TextEditingController masterPassController = TextEditingController();
 
   Future<Null> getMasterPass() async {

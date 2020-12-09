@@ -50,7 +50,7 @@ class DBProvider {
 
   getAllPasswords() async {
     final db = await database;
-    var res = await db.query("Passwords");
+    var res = await db.query("Passwords", orderBy: "app_name",);
     List<Password> list =
         res.isNotEmpty ? res.map((c) => Password.fromJson(c)).toList() : [];
     return list;

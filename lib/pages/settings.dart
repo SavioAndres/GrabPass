@@ -1,8 +1,6 @@
+import 'package:GrabPass/pages/master_password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_material_color_picker/flutter_material_color_picker.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
-import 'set_master_password.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -59,7 +57,7 @@ class _SettingsPageState extends State<SettingsPage> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (BuildContext context) => SetMasterPassword()));
+                      builder: (BuildContext context) => MasterPassword()));
             },
             child: ListTile(
               title: Text(

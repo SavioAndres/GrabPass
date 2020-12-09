@@ -2,11 +2,10 @@ import 'package:GrabPass/bloc/password_bloc.dart';
 import 'package:GrabPass/database/database.dart';
 import 'package:GrabPass/model/password_model.dart';
 import 'package:GrabPass/pages/add_password.dart';
-import 'package:GrabPass/pages/settings.dart';
 import 'package:GrabPass/pages/view_password.dart';
 import 'package:GrabPass/pages/update_password.dart';
-import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Homepage extends StatefulWidget {
   @override
@@ -22,15 +21,35 @@ class _HomepageState extends State<Homepage> {
 
   List<Icon> icons = [
     Icon(Icons.account_circle, size: 28, color: Colors.white),
-    Icon(Icons.add, size: 28, color: Colors.white),
-    Icon(Icons.access_alarms, size: 28, color: Colors.white),
-    Icon(Icons.ac_unit, size: 28, color: Colors.white),
-    Icon(Icons.accessible, size: 28, color: Colors.white),
-    Icon(Icons.account_balance, size: 28, color: Colors.white),
-    Icon(Icons.add_circle_outline, size: 28, color: Colors.white),
-    Icon(Icons.airline_seat_individual_suite, size: 28, color: Colors.white),
-    Icon(Icons.arrow_drop_down_circle, size: 28, color: Colors.white),
-    Icon(Icons.assessment, size: 28, color: Colors.white),
+    Icon(FontAwesomeIcons.solidEnvelope, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.facebook, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.instagram, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.twitter, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.linkedinIn, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.google, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.pinterestP, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.vk, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.amazon, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.solidComment, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.addressBook, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.wifi, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.photoVideo, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.music, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.book, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.userGraduate, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.school, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.theaterMasks, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.folderOpen, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.gamepad, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.solidHeart, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.userMd, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.landmark, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.church, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.home, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.stickyNote, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.newspaper, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.hamburger, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.tshirt, size: 26, color: Colors.white),
   ];
 
   List<String> iconNames = [
@@ -44,6 +63,26 @@ class _HomepageState extends State<Homepage> {
     "Icon 8",
     "Icon 9",
     "Icon 10",
+    "Icon 11",
+    "Icon 12",
+    "Icon 13",
+    "Icon 14",
+    "Icon 15",
+    "Icon 16",
+    "Icon 17",
+    "Icon 18",
+    "Icon 19",
+    "Icon 20",
+    "Icon 21",
+    "Icon 22",
+    "Icon 23",
+    "Icon 24",
+    "Icon 25",
+    "Icon 26",
+    "Icon 27",
+    "Icon 28",
+    "Icon 29",
+    "Icon 30",
   ];
 
   final bloc = PasswordBloc();
@@ -130,7 +169,7 @@ class _HomepageState extends State<Homepage> {
                         Color color = hexToColor(password.color);
                         return Dismissible(
                           //Key(password.id.toString()), //Key(Uuid().v4().toString()), // ObjectKey(password.id), //UniqueKey(),
-                          key: ObjectKey(password.id), 
+                          key: ObjectKey(password.id),
                           background: Container(
                             color: Colors.teal[400],
                             child: Align(
@@ -284,5 +323,4 @@ class _HomepageState extends State<Homepage> {
   Color hexToColor(String code) {
     return new Color(int.parse(code.substring(1, 9), radix: 16) + 0xFF000000);
   }
-
 }

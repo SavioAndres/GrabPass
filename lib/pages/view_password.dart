@@ -1,7 +1,9 @@
 import 'package:GrabPass/model/password_model.dart';
 import 'package:flutter/material.dart';
 import 'package:encrypt/encrypt.dart' as encrypt;
+import 'package:flutter/services.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:local_auth/local_auth.dart';
 
 class ViewPassword extends StatefulWidget {
@@ -23,15 +25,35 @@ class _ViewPasswordState extends State<ViewPassword> {
 
   List<Icon> icons = [
     Icon(Icons.account_circle, size: 64, color: Colors.white),
-    Icon(Icons.add, size: 64, color: Colors.white),
-    Icon(Icons.access_alarms, size: 64, color: Colors.white),
-    Icon(Icons.ac_unit, size: 64, color: Colors.white),
-    Icon(Icons.accessible, size: 64, color: Colors.white),
-    Icon(Icons.account_balance, size: 64, color: Colors.white),
-    Icon(Icons.add_circle_outline, size: 64, color: Colors.white),
-    Icon(Icons.airline_seat_individual_suite, size: 64, color: Colors.white),
-    Icon(Icons.arrow_drop_down_circle, size: 64, color: Colors.white),
-    Icon(Icons.assessment, size: 64, color: Colors.white),
+    Icon(FontAwesomeIcons.solidEnvelope, size: 64, color: Colors.white),
+    Icon(FontAwesomeIcons.facebook, size: 64, color: Colors.white),
+    Icon(FontAwesomeIcons.instagram, size: 64, color: Colors.white),
+    Icon(FontAwesomeIcons.twitter, size: 64, color: Colors.white),
+    Icon(FontAwesomeIcons.linkedinIn, size: 64, color: Colors.white),
+    Icon(FontAwesomeIcons.google, size: 64, color: Colors.white),
+    Icon(FontAwesomeIcons.pinterestP, size: 64, color: Colors.white),
+    Icon(FontAwesomeIcons.vk, size: 64, color: Colors.white),
+    Icon(FontAwesomeIcons.amazon, size: 64, color: Colors.white),
+    Icon(FontAwesomeIcons.solidComment, size: 64, color: Colors.white),
+    Icon(FontAwesomeIcons.addressBook, size: 64, color: Colors.white),
+    Icon(FontAwesomeIcons.wifi, size: 64, color: Colors.white),
+    Icon(FontAwesomeIcons.photoVideo, size: 64, color: Colors.white),
+    Icon(FontAwesomeIcons.music, size: 64, color: Colors.white),
+    Icon(FontAwesomeIcons.book, size: 64, color: Colors.white),
+    Icon(FontAwesomeIcons.userGraduate, size: 64, color: Colors.white),
+    Icon(FontAwesomeIcons.school, size: 64, color: Colors.white),
+    Icon(FontAwesomeIcons.theaterMasks, size: 64, color: Colors.white),
+    Icon(FontAwesomeIcons.folderOpen, size: 64, color: Colors.white),
+    Icon(FontAwesomeIcons.gamepad, size: 64, color: Colors.white),
+    Icon(FontAwesomeIcons.solidHeart, size: 64, color: Colors.white),
+    Icon(FontAwesomeIcons.userMd, size: 64, color: Colors.white),
+    Icon(FontAwesomeIcons.landmark, size: 64, color: Colors.white),
+    Icon(FontAwesomeIcons.church, size: 64, color: Colors.white),
+    Icon(FontAwesomeIcons.home, size: 64, color: Colors.white),
+    Icon(FontAwesomeIcons.stickyNote, size: 64, color: Colors.white),
+    Icon(FontAwesomeIcons.newspaper, size: 64, color: Colors.white),
+    Icon(FontAwesomeIcons.hamburger, size: 64, color: Colors.white),
+    Icon(FontAwesomeIcons.tshirt, size: 64, color: Colors.white),
   ];
 
   List<String> iconNames = [
@@ -45,6 +67,26 @@ class _ViewPasswordState extends State<ViewPassword> {
     "Icon 8",
     "Icon 9",
     "Icon 10",
+    "Icon 11",
+    "Icon 12",
+    "Icon 13",
+    "Icon 14",
+    "Icon 15",
+    "Icon 16",
+    "Icon 17",
+    "Icon 18",
+    "Icon 19",
+    "Icon 20",
+    "Icon 21",
+    "Icon 22",
+    "Icon 23",
+    "Icon 24",
+    "Icon 25",
+    "Icon 26",
+    "Icon 27",
+    "Icon 28",
+    "Icon 29",
+    "Icon 30",
   ];
   bool decrypt = false;
   String decrypted = "";
@@ -167,6 +209,28 @@ class _ViewPasswordState extends State<ViewPassword> {
                             ),
                           ),
                         ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget> [ 
+                            FlatButton(
+                            disabledColor: Colors.green,
+                            onPressed: () {
+                              if (decrypt) {
+                                Clipboard.setData(
+                                    new ClipboardData(text: decrypted));
+                                scaffoldKey.currentState.showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                        "Copiado para a área de transferência"),
+                                    duration: Duration(seconds: 2),
+                                  ),
+                                );
+                              }
+                            },
+                            child: Text(decrypt ? "Copiar senha" : ""),
+                          ),
+                          ],
+                        )
                       ],
                     ),
                     IconButton(

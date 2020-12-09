@@ -1,4 +1,4 @@
-import 'package:GrabPass/pages/set_master_password.dart';
+import 'package:GrabPass/pages/master_password.dart';
 import 'package:flutter/material.dart';
 
 class GreetingsPage extends StatefulWidget {
@@ -76,7 +76,7 @@ class _GreetingsPageState extends State<GreetingsPage> {
                           context,
                           MaterialPageRoute(
                               builder: (BuildContext context) =>
-                                  SetMasterPassword()));
+                                  MasterPassword()));
                     },
                     color: primaryColor,
                     child:

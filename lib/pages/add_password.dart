@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:encrypt/encrypt.dart' as encrypt;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_material_color_picker/flutter_material_color_picker.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:local_auth/error_codes.dart' as auth_error;
 import 'package:flutter/services.dart';
@@ -36,15 +37,35 @@ class _AddPasswordState extends State<AddPassword> {
 
   List<Icon> icons = [
     Icon(Icons.account_circle, size: 28, color: Colors.white),
-    Icon(Icons.add, size: 28, color: Colors.white),
-    Icon(Icons.access_alarms, size: 28, color: Colors.white),
-    Icon(Icons.ac_unit, size: 28, color: Colors.white),
-    Icon(Icons.accessible, size: 28, color: Colors.white),
-    Icon(Icons.account_balance, size: 28, color: Colors.white),
-    Icon(Icons.add_circle_outline, size: 28, color: Colors.white),
-    Icon(Icons.airline_seat_individual_suite, size: 28, color: Colors.white),
-    Icon(Icons.arrow_drop_down_circle, size: 28, color: Colors.white),
-    Icon(Icons.assessment, size: 28, color: Colors.white),
+    Icon(FontAwesomeIcons.solidEnvelope, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.facebook, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.instagram, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.twitter, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.linkedinIn, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.google, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.pinterestP, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.vk, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.amazon, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.solidComment, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.addressBook, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.wifi, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.photoVideo, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.music, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.book, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.userGraduate, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.school, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.theaterMasks, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.folderOpen, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.gamepad, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.solidHeart, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.userMd, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.landmark, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.church, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.home, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.stickyNote, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.newspaper, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.hamburger, size: 26, color: Colors.white),
+    Icon(FontAwesomeIcons.tshirt, size: 26, color: Colors.white),
   ];
 
   List<String> iconNames = [
@@ -58,6 +79,26 @@ class _AddPasswordState extends State<AddPassword> {
     "Icon 8",
     "Icon 9",
     "Icon 10",
+    "Icon 11",
+    "Icon 12",
+    "Icon 13",
+    "Icon 14",
+    "Icon 15",
+    "Icon 16",
+    "Icon 17",
+    "Icon 18",
+    "Icon 19",
+    "Icon 20",
+    "Icon 21",
+    "Icon 22",
+    "Icon 23",
+    "Icon 24",
+    "Icon 25",
+    "Icon 26",
+    "Icon 27",
+    "Icon 28",
+    "Icon 29",
+    "Icon 30",
   ];
 
   List<Color> colors = [
@@ -119,8 +160,7 @@ class _AddPasswordState extends State<AddPassword> {
       if (didAuthenticate == false) {
         Navigator.pushAndRemoveUntil(
             context,
-            MaterialPageRoute(
-                builder: (BuildContext context) => Homepage()),
+            MaterialPageRoute(builder: (BuildContext context) => Homepage()),
             (Route<dynamic> route) => false);
       }
     } on PlatformException catch (e) {
@@ -194,9 +234,10 @@ class _AddPasswordState extends State<AddPassword> {
                   Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: TextFormField(
+                      textCapitalization: TextCapitalization.sentences,
                       validator: (value) {
                         if (value.isEmpty) {
-                          return 'Por favor, insira um título válido';
+                          return 'Por favor, insira um título';
                         }
                       },
                       decoration: InputDecoration(
@@ -212,11 +253,11 @@ class _AddPasswordState extends State<AddPassword> {
                     child: TextFormField(
                       validator: (value) {
                         if (value.isEmpty) {
-                          return 'Por favor, insira um nome de usuário válido';
+                          return 'Por favor, insira um e-mail ou nome de usuário';
                         }
                       },
                       decoration: InputDecoration(
-                          labelText: "Nome de usuário ou e-mail",
+                          labelText: "E-mail ou nome de usuário",
                           labelStyle: TextStyle(fontFamily: "Subtitle"),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(6))),
@@ -225,18 +266,19 @@ class _AddPasswordState extends State<AddPassword> {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: TextField(
-                      // validator: (value) {
-                      //   if (value.isEmpty) {
-                      //     return 'Please enter valid password';
-                      //   }
-                      // },
+                    child: TextFormField(
+                      //TextField
+                      validator: (value) {
+                        if (value.isEmpty) {
+                          return 'Por favor, insira uma senha';
+                        }
+                      },
                       onChanged: (pass) {
                         checkPassStrength(pass);
                       },
                       obscureText: obscureText,
                       decoration: InputDecoration(
-                        // errorText: 'Please enter valid password',
+                        //errorText: 'Please enter valid password',
                         labelText: "Senha",
                         labelStyle: TextStyle(fontFamily: "Subtitle"),
                         border: OutlineInputBorder(
@@ -307,9 +349,6 @@ class _AddPasswordState extends State<AddPassword> {
                       ),
                     ),
                   ),
-
-/*
-
                   Padding(
                     padding:
                         const EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0),
@@ -320,36 +359,40 @@ class _AddPasswordState extends State<AddPassword> {
                           padding: const EdgeInsets.only(
                               left: 8.0, right: 8.0, top: 8.0),
                           child: Text(
-                            "Escolha um ícone",
+                            "Escolha uma cor",
                             style: TextStyle(
                                 fontFamily: 'Title',
                                 fontSize: 20,
                                 color: primaryColor),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              left: 8.0, right: 20.0, top: 8.0),
-                          child: Material(
-                            shape: CircleBorder(),
-                            elevation: 4.0,
-                            child: CircleAvatar(
-                                backgroundColor: pickedColor,
-                                radius: 25,
-                                child: icons[pickedIcon]),
-                          ),
+                        InkWell(
+                          onTap: () {
+                            _openColorPicker();
+                          },
+                          child: Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 8, right: 20, top: 8),
+                              child: Material(
+                                shape: CircleBorder(),
+                                elevation: 4.0,
+                                child: CircleAvatar(
+                                    backgroundColor: pickedColor,
+                                    radius: 25,
+                                    child: icons[pickedIcon]),
+                              )),
                         ),
                       ],
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.fromLTRB(20.0, 0, 24, 10),
+                    padding: EdgeInsets.fromLTRB(20, 10, 20, 90),
                     child: GridView.count(
                         shrinkWrap: true,
                         scrollDirection: Axis.vertical,
-                        crossAxisCount: 5,
-                        crossAxisSpacing: 2,
-                        mainAxisSpacing: 15,
+                        crossAxisCount: 6, //5
+                        crossAxisSpacing: 1,
+                        mainAxisSpacing: 10,
                         childAspectRatio: 1.3,
                         children: List.generate(icons.length, (index) {
                           return InkWell(
@@ -366,42 +409,6 @@ class _AddPasswordState extends State<AddPassword> {
                           );
                         })),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            "Escolha uma cor",
-                            style: TextStyle(
-                                fontFamily: 'Title',
-                                fontSize: 20,
-                                color: primaryColor),
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            _openColorPicker();
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                                left: 8.0, right: 80, top: 2),
-                            child: Material(
-                                shape: CircleBorder(),
-                                elevation: 4.0,
-                                child: CircleAvatar(
-                                  backgroundColor: pickedColor,
-                                  radius: 25,
-                                )),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-
-*/
                 ],
               ),
             ),
@@ -410,7 +417,7 @@ class _AddPasswordState extends State<AddPassword> {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: primaryColor,
-        child: Icon(Icons.add),
+        child: Icon(Icons.done),
         onPressed: () {
           if (_formKey.currentState.validate()) {
             encryptPass(passwordController.text);
@@ -441,14 +448,14 @@ class _AddPasswordState extends State<AddPassword> {
       builder: (_) {
         return AlertDialog(
           contentPadding: const EdgeInsets.all(7.0),
-          title: Text("Seletor de cores"),
+          title: Text("Selecionar cor"),
           actions: [
             FlatButton(
               child: Text('CANCELAR'),
               onPressed: Navigator.of(context).pop,
             ),
             FlatButton(
-              child: Text('ENVIAR'),
+              child: Text('SALVAR'),
               onPressed: () {
                 Navigator.of(context).pop();
                 setState(() {
@@ -459,6 +466,7 @@ class _AddPasswordState extends State<AddPassword> {
           ],
           content: MaterialColorPicker(
             allowShades: true,
+            shrinkWrap: true,
             selectedColor: _tempShadeColor,
             onColorChange: (color) => setState(() => _tempShadeColor = color),
             onMainColorChange: (color) =>
