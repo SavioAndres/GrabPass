@@ -2,6 +2,8 @@ import 'package:GrabPass/bloc/password_bloc.dart';
 import 'package:GrabPass/database/database.dart';
 import 'package:GrabPass/model/password_model.dart';
 import 'package:GrabPass/pages/add_edit_password.dart';
+import 'package:GrabPass/pages/settings.dart';
+import 'package:GrabPass/pages/settings2.dart';
 import 'package:GrabPass/pages/view_password.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -111,19 +113,28 @@ class _HomepageState extends State<Homepage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+            padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
             child: Container(
-                margin: EdgeInsets.only(top: size.height * 0.05),
+                margin: EdgeInsets.only(top: size.height * 0.04),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text(
-                      "GrabPass",
-                      style: TextStyle(
-                          fontFamily: "Title",
-                          fontSize: 32,
-                          color: primaryColor),
-                    ),
+                    Row(children: <Widget>[
+                      Image.asset(
+                        "assets/logo.png",
+                        height: 42,
+                      ),
+                      SizedBox(
+                        width: 12,
+                      ),
+                      Text(
+                        "GrabPass",
+                        style: TextStyle(
+                            fontFamily: "Title3",
+                            fontSize: 32,
+                            color: primaryColor),
+                      ),
+                    ]),
                     Row(
                       children: <Widget>[
                         /*IconButton(
@@ -134,7 +145,7 @@ class _HomepageState extends State<Homepage> {
                           onPressed: () {
                             changeBrightness();
                           },
-                        ), 
+                        ), */
                         IconButton(
                           icon: Icon(
                             Icons.settings,
@@ -145,9 +156,9 @@ class _HomepageState extends State<Homepage> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (BuildContext context) =>
-                                        SettingsPage()));
+                                        Settings()));
                           },
-                        ),*/
+                        ),
                       ],
                     ),
                   ],
@@ -206,7 +217,7 @@ class _HomepageState extends State<Homepage> {
                                     color: Colors.white,
                                   ),
                                   Text(
-                                    " Exluir",
+                                    " Excluir",
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.w700,

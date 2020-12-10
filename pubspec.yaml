@@ -93,3 +93,11 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
   assets: 
     - assets/logo.png
+  
+  fonts:
+    - family: Title2
+      fonts:
+        - asset: assets/fonts/Title2.otf
+    - family: Title3
+      fonts:
+        - asset: assets/fonts/Title3.ttf

@@ -139,8 +139,8 @@ class _ViewPasswordState extends State<ViewPassword> {
               decoration: BoxDecoration(
                   color: color,
                   borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(30),
-                      bottomRight: Radius.circular(30))),
+                      bottomLeft: Radius.circular(33),
+                      bottomRight: Radius.circular(33))),
               child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -148,11 +148,11 @@ class _ViewPasswordState extends State<ViewPassword> {
                   children: <Widget>[
                     icons[index],
                     SizedBox(
-                      height: 12,
+                      height: 14,
                     ),
                     Text(password.appName,
                         style: TextStyle(
-                            fontFamily: "Title",
+                            fontFamily: "Title2",
                             fontSize: 32,
                             color: Colors.white)),
                   ],

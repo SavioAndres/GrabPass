@@ -239,7 +239,7 @@ class _AddEditPasswordState extends State<AddEditPassword> {
                 child: Text(
                   widget.pass == null ? "Adicionar Conta" : "Alterar Conta",
                   style: TextStyle(
-                      fontFamily: "Title", fontSize: 32, color: primaryColor),
+                      fontFamily: "Title", fontSize: 30, color: primaryColor),
                 ),
               ),
             ),
