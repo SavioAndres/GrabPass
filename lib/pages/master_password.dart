@@ -57,10 +57,10 @@ class _MasterPasswordState extends State<MasterPassword> {
             padding: const EdgeInsets.all(16.0),
             child: Container(
                 margin: EdgeInsets.only(top: size.height * 0.05),
-                child: Text("Senha mestre",
+                child: Text("Senha Mestre",
                     style: TextStyle(
                         fontFamily: "Title",
-                        fontSize: 32,
+                        fontSize: 30,
                         color: primaryColor))),
           ),
           Padding(
